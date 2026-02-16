@@ -1,0 +1,43 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-16T12:52:44.329Z",
+  "summary": "REQ-18 and REQ-20 appear implemented via a new backend health hook, HomePage connectivity error UI with retry + current URL display, and updated custom-domain troubleshooting documentation. There is no clear evidence in the provided backend/main.mo diff snippet that the required public query health-check method (e.g., healthCheck/status) was added, so REQ-19 cannot be verified as implemented from the diff summary.",
+  "missing_requirements": [
+    {
+      "id": "REQ-19",
+      "requirement": "Implement a simple public backend health-check query method in the single Motoko main actor that returns a static OK response (and optionally a backend version string) so the frontend can reliably distinguish “backend reachable” vs “backend unreachable”.",
+      "reason": "The frontend hook calls `actor.healthCheck()`, but the shown `backend/main.mo` changes (truncated) do not include any `public query func healthCheck`/`status` (or similar) implementation returning a deterministic OK payload. With only the provided snippet, the backend method addition cannot be confirmed.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useBackendHealth.ts"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Project metadata/state update not requested in the BuildRequest (project_state.json changes).",
+      "reason": "The BuildRequest only requests REQ-18/19/20 changes; updating project state metadata is not mentioned as a requirement or constraint-related necessity.",
+      "evidence": [
+        "project_state.json"
+      ]
+    },
+    {
+      "description": "Generation/update of a frontend file summary inventory (frontend-file-summaries.txt) not requested in the BuildRequest.",
+      "reason": "The BuildRequest does not ask for repository inventory or summary files; this appears auxiliary to the requested functionality.",
+      "evidence": [
+        "frontend-file-summaries.txt"
+      ]
+    }
+  ],
+  "confidence": 0.72,
+  "changed_files": [
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/docs/custom-domain-luxeoushub.com.md",
+    "frontend/src/hooks/useBackendHealth.ts",
+    "frontend/src/hooks/useStorefrontSections.ts",
+    "frontend/src/pages/HomePage.tsx",
+    "project_state.json"
+  ]
+}

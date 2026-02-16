@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.625rem;
+        /* Warm neutral background - soft cream */
+        --background: 0.98 0.01 60;
+        /* Deep ink foreground */
+        --foreground: 0.20 0.01 60;
+        /* Card - pure white */
+        --card: 1 0 0;
+        --card-foreground: 0.20 0.01 60;
+        /* Popover */
+        --popover: 1 0 0;
+        --popover-foreground: 0.20 0.01 60;
+        /* Primary - rich gold */
+        --primary: 0.65 0.15 65;
+        --primary-foreground: 0.98 0.01 60;
+        /* Secondary - warm taupe */
+        --secondary: 0.92 0.02 55;
+        --secondary-foreground: 0.25 0.01 60;
+        /* Muted - light warm gray */
+        --muted: 0.95 0.01 60;
+        --muted-foreground: 0.50 0.02 60;
+        /* Accent - soft gold */
+        --accent: 0.88 0.08 70;
+        --accent-foreground: 0.25 0.01 60;
+        /* Destructive */
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 0.98 0 0;
+        /* Border - subtle warm gray */
+        --border: 0.90 0.01 60;
+        --input: 0.90 0.01 60;
+        /* Ring - gold accent */
+        --ring: 0.65 0.15 65;
+        /* Charts */
+        --chart-1: 0.65 0.15 65;
+        --chart-2: 0.60 0.12 45;
+        --chart-3: 0.55 0.10 30;
+        --chart-4: 0.70 0.18 80;
+        --chart-5: 0.50 0.08 50;
+    }
+
+    .dark {
+        /* Dark warm background */
+        --background: 0.18 0.01 60;
+        /* Light cream foreground */
+        --foreground: 0.95 0.01 60;
+        /* Card - slightly lighter than background */
+        --card: 0.22 0.01 60;
+        --card-foreground: 0.95 0.01 60;
+        /* Popover */
+        --popover: 0.22 0.01 60;
+        --popover-foreground: 0.95 0.01 60;
+        /* Primary - bright gold */
+        --primary: 0.75 0.18 65;
+        --primary-foreground: 0.18 0.01 60;
+        /* Secondary */
+        --secondary: 0.28 0.02 55;
+        --secondary-foreground: 0.95 0.01 60;
+        /* Muted */
+        --muted: 0.28 0.01 60;
+        --muted-foreground: 0.65 0.02 60;
+        /* Accent */
+        --accent: 0.35 0.05 65;
+        --accent-foreground: 0.95 0.01 60;
+        /* Destructive */
+        --destructive: 0.60 0.20 25;
+        --destructive-foreground: 0.18 0.01 60;
+        /* Border */
+        --border: 0.30 0.01 60;
+        --input: 0.30 0.01 60;
+        /* Ring */
+        --ring: 0.75 0.18 65;
+        /* Charts */
+        --chart-1: 0.75 0.18 65;
+        --chart-2: 0.65 0.14 45;
+        --chart-3: 0.60 0.12 30;
+        --chart-4: 0.80 0.20 80;
+        --chart-5: 0.55 0.10 50;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}
+
+@layer utilities {
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+}

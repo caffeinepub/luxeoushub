@@ -1,0 +1,19 @@
+{
+  "frontend/src/App.tsx": "Main app component with simple state-based routing between HomePage and SellerDashboardPage, passing navigation callbacks to each page.",
+  "frontend/src/pages/HomePage.tsx": "Complete homepage with sticky header navigation, hero section, scrollable product sections, connectivity error banner displaying current URL and retry button when backend is unreachable, trust info, affiliate disclosure, and footer.",
+  "frontend/src/components/storefront/ProductCard.tsx": "Reusable product card component displaying product image, title, optional badge, and Amazon outbound link with proper security attributes.",
+  "frontend/src/components/storefront/ProductSection.tsx": "Reusable section component that renders a titled product grid with icon, loading skeletons, and empty state messaging.",
+  "frontend/src/components/storefront/AffiliateDisclosure.tsx": "Affiliate disclosure component with clear English compliance copy about Amazon Associates program and commission earnings.",
+  "frontend/src/components/storefront/TrustInfo.tsx": "Trust information section highlighting Amazon Fast Delivery, Trusted Products, and Support & Reviews with contact placeholder.",
+  "frontend/src/hooks/useStorefrontSections.ts": "React Query hook that fetches all products and provides helper function to filter products by section tag, now exposing error state and refetch function for connectivity error handling.",
+  "frontend/src/hooks/useQueries.ts": "Collection of React Query hooks for fetching products (all products, by section, and by ID) from the backend actor.",
+  "frontend/src/index.css": "Global styles with luxe editorial OKLCH color system featuring warm neutrals (cream background, ink foreground) and rich gold accents for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom font families (Inter, Playfair Display), luxury shadow utilities, and complete OKLCH color token mappings.",
+  "frontend/src/components/auth/LoginButton.tsx": "Reusable login/logout button component using Internet Identity with loading states and query cache clearing on logout.",
+  "frontend/src/hooks/useSellerProducts.ts": "React Query hooks for seller operations including role checking, product CRUD mutations (add, update, delete), and product fetching with automatic cache invalidation.",
+  "frontend/src/pages/SellerDashboardPage.tsx": "Complete seller dashboard page with authentication/authorization checks, product creation/editing form with section tag selection, product list with edit/delete actions, confirmation dialogs, comprehensive loading/error/success states, and clean footer using the SiteFooter component.",
+  "frontend/src/components/layout/SiteFooter.tsx": "Reusable site footer component displaying only Luxeoushub copyright with current year, no external branding or attribution links.",
+  "frontend/index.html": "HTML entry point with canonical link tag for luxeoushub.com and Open Graph metadata including URL, title, description, and type properties.",
+  "frontend/docs/custom-domain-luxeoushub.com.md": "Comprehensive documentation for configuring luxeoushub.com custom domain including DNS setup for multiple providers, platform configuration steps, verification checklist, and detailed troubleshooting guide for \"This site can't be reached\" errors with step-by-step diagnostic procedures.",
+  "frontend/src/hooks/useBackendHealth.ts": "React Query hook that calls the backend healthCheck query to determine backend reachability, exposing isHealthy, isUnreachable flags and a refetch function for retry actions."
+}

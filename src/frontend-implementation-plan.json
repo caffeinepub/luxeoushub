@@ -1,0 +1,50 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Connectivity diagnostics and reachability messaging for Luxeoushub storefront",
+  "requirements": [
+    {
+      "id": "REQ-18",
+      "summary": "Show a public storefront connectivity error state when the backend is unreachable, with Retry and current URL display.",
+      "acceptanceCriteria": [
+        "When backend actor calls fail due to network/unreachable errors, the Home page renders a visible, non-technical English error banner/section instead of silently failing.",
+        "The error UI includes a Retry button that re-attempts the failed query/queries.",
+        "The error UI displays the current URL so the site owner can confirm/copy what they are sharing.",
+        "When the backend is reachable again, the error UI disappears and normal storefront sections render."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useBackendHealth.ts",
+          "operation": "create",
+          "description": "Create a lightweight React Query hook that calls the backend health-check capability (e.g., actor.healthCheck) to distinguish “reachable” vs “unreachable”, and exposes status + a refetch function for the UI to drive a Retry action. Leverage the existing core-infrastructure actor creation via useActor. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useStorefrontSections.ts",
+          "operation": "modify",
+          "description": "Enhance the storefront products query to surface error state (e.g., isError/error) and a refetch function to support a user-initiated Retry from the Home page when product loading fails due to reachability issues."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Add a public-facing connectivity error banner/section above the storefront content that appears when the backend health-check and/or initial product fetch fails, includes a clear English message, displays the current page URL (window.location.origin and window.location.href), and provides a Retry button that triggers refetch of health + product queries. Use the shadcn-ui Button component for the Retry action (compose only; do not modify any files under frontend/src/components/ui). Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "summary": "Add an English troubleshooting checklist to the custom domain/publishing documentation for “This site can’t be reached”.",
+      "acceptanceCriteria": [
+        "The documentation file frontend/docs/custom-domain-luxeoushub.com.md contains actionable steps for verifying DNS and domain mapping and a troubleshooting checklist for “This site can’t be reached”.",
+        "The troubleshooting section includes guidance to test reachability using the platform-provided live URL before testing the custom domain.",
+        "All added documentation text is written in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/docs/custom-domain-luxeoushub.com.md",
+          "operation": "modify",
+          "description": "Extend the document with a dedicated troubleshooting section for the browser error “This site can’t be reached”, including an actionable checklist to verify DNS records, platform domain mapping, and explicit steps to confirm a working live URL by first testing the platform-provided URL and then the custom domain once configured (all text in English)."
+        }
+      ]
+    }
+  ]
+}

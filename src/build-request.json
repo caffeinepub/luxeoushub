@@ -1,0 +1,79 @@
+{
+  "kind": "build_request",
+  "title": "Fix unreachable live site and add connectivity diagnostics for Luxeoushub",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-18",
+      "text": "Add a public-facing connectivity error state on the storefront homepage that detects when the app cannot reach the deployed backend canister (e.g., fetch/query failures) and shows a clear English message explaining that the site is temporarily unreachable, along with a “Retry” action and the current page URL (window.location.origin + window.location.href) to help the owner share the correct link.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "I am trying to publish my website draft, but when I open the link, I get the message: “This site can’t be reached.”",
+          "Make my draft publicly accessible, and",
+          "Ensure it can be reached via a live URL so I can share it with my customers."
+        ]
+      },
+      "acceptanceCriteria": [
+        "When backend actor calls fail due to network/unreachable errors, the Home page renders a visible, non-technical English error banner/section instead of silently failing.",
+        "The error UI includes a Retry button that re-attempts the failed query/queries.",
+        "The error UI displays the current URL so the site owner can confirm/copy what they are sharing.",
+        "When the backend is reachable again, the error UI disappears and normal storefront sections render."
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "text": "Implement a simple public backend health-check query method in the single Motoko main actor that returns a static OK response (and optionally a backend version string) so the frontend can reliably distinguish “backend reachable” vs “backend unreachable”.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "I get the message: “This site can’t be reached.”",
+          "Ensure it can be reached via a live URL so I can share it with my customers."
+        ]
+      },
+      "acceptanceCriteria": [
+        "A new public query function (e.g., health/status) exists on the backend actor and returns a deterministic OK payload without requiring authentication.",
+        "Calling the health-check does not mutate state and does not require any roles/permissions.",
+        "If the backend canister is running and reachable, the health-check call succeeds consistently."
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "Update the custom domain / publishing documentation to include a troubleshooting section specifically for the browser error “This site can’t be reached”, including a checklist to verify DNS records, platform domain mapping, and a way to confirm a working live URL (both the platform-provided URL and the custom domain URL once configured). Keep all user-facing text in English.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Could you please help me: Make my draft publicly accessible, and Ensure it can be reached via a live URL so I can share it with my customers."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The documentation file frontend/docs/custom-domain-luxeoushub.com.md contains actionable steps for verifying DNS and domain mapping and a troubleshooting checklist for “This site can’t be reached”.",
+        "The troubleshooting section includes guidance to test reachability using the platform-provided live URL before testing the custom domain.",
+        "All added documentation text is written in English."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must remain a single-actor Motoko architecture with all logic in backend/main.mo (additions allowed, no extra backend services).",
+    "Do not modify any frontend files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or any files under frontend/src/components/ui (compose instead).",
+    "Do not introduce third-party auth providers; Internet Identity remains the only supported auth mechanism."
+  ],
+  "nonGoals": [
+    "Registering the domain with a registrar or making DNS changes on behalf of the user (documentation/checklists only).",
+    "Submitting the site to Google or handling Google Search Console setup as part of this build.",
+    "Adding new product features, new site pages, or changing the storefront merchandising sections unrelated to reachability."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

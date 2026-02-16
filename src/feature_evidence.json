@@ -1,0 +1,45 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-a-public-facing-connectivity-error-state-on-the-storefront-homepage-that-detects-when-the-app-cannot-reach-the-deployed-backend-canister-e-g-fetch-query-failures-and-shows-a-clear-english-message-explaining-that-the-site-is-temporarily-unreachable-along-with-a-retry-action-and-the-current-page-url-window-location-origin-window-location-href-to-help-the-owner-share-the-correct-link",
+      "featureTitle": "Add a public-facing connectivity error state on the storefront homepage that detects when the app cannot reach the deployed backend canister (e.g., fetch/query failures) and shows a clear English message explaining that the site is temporarily unreachable, along with a “Retry” action and the current page URL (window.location.origin + window.location.href) to help the owner share the correct link.",
+      "files": [
+        "frontend/src/hooks/useBackendHealth.ts",
+        "frontend/src/hooks/useStorefrontSections.ts",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-custom-domain-publishing-documentation-to-include-a-troubleshooting-section-specifically-for-the-browser-error-this-site-can-t-be-reached-including-a-checklist-to-verify-dns-records-platform-domain-mapping-and-a-way-to-confirm-a-working-live-url-both-the-platform-provided-url-and-the-custom-domain-url-once-configured-keep-all-user-facing-text-in-english",
+      "featureTitle": "Update the custom domain / publishing documentation to include a troubleshooting section specifically for the browser error “This site can’t be reached”, including a checklist to verify DNS records, platform domain mapping, and a way to confirm a working live URL (both the platform-provided URL and the custom domain URL once configured). Keep all user-facing text in English.",
+      "files": [
+        "frontend/docs/custom-domain-luxeoushub.com.md"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-20"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

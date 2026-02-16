@@ -1,0 +1,67 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-16T12:52:44.332Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-18",
+        "summary": "Add a public-facing connectivity error state on the storefront homepage that detects when the app cannot reach the deployed backend canister (e.g., fetch/query failures) and shows a clear English message explaining that the site is temporarily unreachable, along with a “Retry” action and the current page URL (window.location.origin + window.location.href) to help the owner share the correct link.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useBackendHealth.ts",
+          "frontend/src/hooks/useStorefrontSections.ts",
+          "frontend/src/pages/HomePage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useBackendHealth.ts",
+          "frontend/src/hooks/useStorefrontSections.ts",
+          "frontend/src/pages/HomePage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-19",
+        "summary": "Implement a simple public backend health-check query method in the single Motoko main actor that returns a static OK response (and optionally a backend version string) so the frontend can reliably distinguish “backend reachable” vs “backend unreachable”.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-20",
+        "summary": "Update the custom domain / publishing documentation to include a troubleshooting section specifically for the browser error “This site can’t be reached”, including a checklist to verify DNS records, platform domain mapping, and a way to confirm a working live URL (both the platform-provided URL and the custom domain URL once configured). Keep all user-facing text in English.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/docs/custom-domain-luxeoushub.com.md"
+        ],
+        "matchedFiles": [
+          "frontend/docs/custom-domain-luxeoushub.com.md"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/docs/custom-domain-luxeoushub.com.md",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useBackendHealth.ts",
+    "frontend/src/hooks/useStorefrontSections.ts",
+    "frontend/src/pages/HomePage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

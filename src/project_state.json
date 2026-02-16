@@ -1,0 +1,229 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 9,
+  "summary": "Build \"Luxeoushub\", an Amazon affiliate storefront showcasing curated product recommendations, category collections, deals/offers, and best sellers with trust/support information.",
+  "architectural_notes": [
+    "Plan for custom domain setup (DNS + hosting/platform configuration) for luxeoushub.com and ensure all links/assets work correctly under the new domain.",
+    "Plan Google indexing steps for launch: set up Google Search Console for luxeoushub.com, verify via DNS TXT, submit sitemap, and request indexing for key URLs."
+  ],
+  "known_issues": [
+    "Published draft/live link is not reachable (browser shows “This site can’t be reached”); site is not publicly accessible via a live URL to share with customers."
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-a-public-luxeoushub-homepage-that-presents-the-brand-name-luxeoushub-and-the-app-description-amazon-affiliate-store-and-includes-clear-navigation-jump-links-to-the-main-sections-shop-recommended-products-best-bags-deals-trending-clothes-top-jewelry-picks-new-finds-today-s-offers-and-best-sellers",
+      "title": "Create a public Luxeoushub homepage that presents the brand name “Luxeoushub” and the app description “Amazon Affiliate Store”, and includes clear navigation/jump links to the main sections: Shop Recommended Products, Best Bags Deals, Trending Clothes, Top Jewelry Picks, New Finds, Today’s Offers, and Best Sellers.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-product-listing-ui-components-grid-list-for-each-merchandising-section-recommended-products-best-bags-deals-trending-clothes-top-jewelry-picks-new-finds-today-s-offers-best-sellers-using-reusable-product-cards-that-support-product-image-product-title-optional-price-discount-text-and-an-outbound-shop-on-amazon-button-link",
+      "title": "Implement product listing UI components (grid/list) for each merchandising section (Recommended Products, Best Bags Deals, Trending Clothes, Top Jewelry Picks, New Finds, Today’s Offers, Best Sellers) using reusable product cards that support: product image, product title, optional price/discount text, and an outbound “Shop on Amazon” button/link.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-amazon-affiliate-outbound-link-handling-so-each-product-card-can-link-to-an-amazon-product-url-that-includes-the-affiliate-tracking-parameters-as-provided-in-product-data-and-ensure-links-open-in-a-new-tab-with-safe-attributes",
+      "title": "Add Amazon affiliate outbound link handling so each product card can link to an Amazon product URL that includes the affiliate tracking parameters as provided in product data, and ensure links open in a new tab with safe attributes.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-affiliate-disclosure-compliance-ui-element-on-the-homepage-e-g-footer-or-near-product-sections-with-clear-english-text-indicating-the-site-uses-affiliate-links-and-may-earn-commissions-from-qualifying-purchases",
+      "title": "Add an affiliate disclosure/compliance UI element on the homepage (e.g., footer or near product sections) with clear English text indicating the site uses affiliate links and may earn commissions from qualifying purchases.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-connect-the-frontend-homepage-to-the-backend-curated-storefront-api-using-react-query-for-loading-caching-and-show-appropriate-loading-and-empty-states-per-section-when-data-is-not-yet-available",
+      "title": "Connect the frontend homepage to the backend curated storefront API using React Query for loading/caching, and show appropriate loading and empty states per section when data is not yet available.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-trust-info-area-on-the-homepage-that-highlights-amazon-fast-delivery-and-trusted-products-and-include-a-support-reviews-section-with-english-copy-that-explains-how-users-can-evaluate-products-e-g-by-checking-amazon-ratings-reviews-and-how-to-contact-support-provide-a-placeholder-contact-method-such-as-a-support-email-text-label",
+      "title": "Add a trust/info area on the homepage that highlights: “Amazon Fast Delivery” and “Trusted Products”, and include a “Support & Reviews” section with English copy that explains how users can evaluate products (e.g., by checking Amazon ratings/reviews) and how to contact support (provide a placeholder contact method such as a support email text label).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-luxe-editorial-visual-theme-across-the-app-e-g-warm-neutrals-gold-accents-high-contrast-typography-generous-whitespace-ensuring-consistent-styling-for-header-section-titles-product-cards-and-cta-buttons-avoid-blue-purple-as-primary-brand-colors",
+      "title": "Apply a cohesive, luxe editorial visual theme across the app (e.g., warm neutrals, gold accents, high-contrast typography, generous whitespace), ensuring consistent styling for header, section titles, product cards, and CTA buttons; avoid blue/purple as primary brand colors.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-brand-assets-to-the-frontend-and-render-them-in-the-ui-a-luxeoushub-wordmark-logo-and-a-homepage-hero-banner-background-image",
+      "title": "Add generated static brand assets to the frontend and render them in the UI: a Luxeoushub wordmark/logo and a homepage hero/banner background image.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-seller-dashboard-ui-that-allows-the-seller-to-log-in-with-internet-identity-and-then-add-amazon-product-links-and-product-image-urls-assigning-each-product-to-one-or-more-existing-homepage-section-tags-recommended-best-bags-deals-trending-clothes-top-jewelry-picks-new-finds-offers-best-sellers",
+      "title": "Implement a Seller Dashboard UI that allows the seller to log in with Internet Identity and then add Amazon product links and product image URLs, assigning each product to one or more existing homepage section tags (Recommended, Best Bags Deals, Trending Clothes, Top Jewelry Picks, New Finds, Offers, Best Sellers).",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-product-management-edit-and-delete-capabilities-to-the-seller-dashboard-for-products-already-in-the-storefront",
+      "title": "Add product management (edit and delete) capabilities to the Seller Dashboard for products already in the storefront.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-provide-clear-english-empty-loading-error-states-for-the-seller-dashboard-data-fetching-and-mutations",
+      "title": "Provide clear English empty/loading/error states for the Seller Dashboard data fetching and mutations.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-all-visible-caffeine-platform-watermark-branding-from-the-luxeoushub-website-ui-including-the-built-with-using-caffeine-ai-footer-elements-on-the-public-home-page-and-the-seller-dashboard-page",
+      "title": "Remove all visible Caffeine platform watermark/branding from the Luxeoushub website UI, including the “Built with … using caffeine.ai” footer elements on the public Home page and the Seller Dashboard page.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-app-s-html-metadata-to-reflect-the-intended-custom-domain-luxeoushub-com-by-adding-appropriate-canonical-metadata-tags-in-the-root-html-while-keeping-all-user-facing-text-in-english",
+      "title": "Update the app’s HTML metadata to reflect the intended custom domain luxeoushub.com by adding appropriate canonical/metadata tags in the root HTML (while keeping all user-facing text in English).",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-short-project-local-documentation-file-describing-how-to-configure-the-site-to-use-the-custom-domain-luxeoushub-com-dns-platform-domain-mapping-steps-without-requiring-any-code-changes-at-runtime",
+      "title": "Add a short, project-local documentation file describing how to configure the site to use the custom domain luxeoushub.com (DNS + platform domain mapping steps) without requiring any code changes at runtime.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-public-facing-connectivity-error-state-on-the-storefront-homepage-that-detects-when-the-app-cannot-reach-the-deployed-backend-canister-e-g-fetch-query-failures-and-shows-a-clear-english-message-explaining-that-the-site-is-temporarily-unreachable-along-with-a-retry-action-and-the-current-page-url-window-location-origin-window-location-href-to-help-the-owner-share-the-correct-link",
+      "title": "Add a public-facing connectivity error state on the storefront homepage that detects when the app cannot reach the deployed backend canister (e.g., fetch/query failures) and shows a clear English message explaining that the site is temporarily unreachable, along with a “Retry” action and the current page URL (window.location.origin + window.location.href) to help the owner share the correct link.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-custom-domain-publishing-documentation-to-include-a-troubleshooting-section-specifically-for-the-browser-error-this-site-can-t-be-reached-including-a-checklist-to-verify-dns-records-platform-domain-mapping-and-a-way-to-confirm-a-working-live-url-both-the-platform-provided-url-and-the-custom-domain-url-once-configured-keep-all-user-facing-text-in-english",
+      "title": "Update the custom domain / publishing documentation to include a troubleshooting section specifically for the browser error “This site can’t be reached”, including a checklist to verify DNS records, platform domain mapping, and a way to confirm a working live URL (both the platform-provided URL and the custom domain URL once configured). Keep all user-facing text in English.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create Luxeoushub Amazon affiliate storefront homepage with curated product recommendations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add category browsing/sections: Best Bags Deals, Trending Clothes, Top Jewelry Picks, New Finds",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Add merchandising sections: Today’s Offers and Best Sellers",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Integrate Amazon affiliate outbound links for products and ensure proper attribution/compliance",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add trust/info UI elements: Amazon Fast Delivery, Trusted Products, Support & Reviews section",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Implement a simple backend data model and query API in the single Motoko actor to serve curated storefront data for the homepage, including: categories/sections (names matching the homepage sections) and products (id, title, image URL, Amazon URL, section/category tags, and optional badge fields like “Offer” or “Best Seller”).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Add a seller/admin posting feature to let the site owner manually add Amazon product links and images (basic product submission/management UI)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Add persistent product storage to the Motoko backend and expose seller-managed CRUD APIs for products (create, update, delete) while keeping the existing read APIs (getAllProducts, getProductsBySection, getProductById) working with the new storage.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Restrict product management APIs so only authorized seller/admin identities can create, update, or delete products using Internet Identity principals (caller-based authorization).",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Remove/disable the “Caffeine” platform watermark/branding from the Luxeoushub website UI",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Configure a custom domain for the site: luxeoushub.com (replace the current Caffeine-provided domain)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Implement a simple public backend health-check query method in the single Motoko main actor that returns a static OK response (and optionally a backend version string) so the frontend can reliably distinguish “backend reachable” vs “backend unreachable”.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Luxeoushub",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
